@@ -23,7 +23,7 @@ export default function BubbleBackground() {
     if (!ctx) return;
 
     const bubbles: Bubble[] = [];
-    const BUBBLE_COUNT = 60;
+    const BUBBLE_COUNT = 35;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -40,11 +40,11 @@ export default function BubbleBackground() {
       return {
         x: Math.random() * canvas.width,
         y: canvas.height + Math.random() * 200,
-        radius: Math.random() * 28 + 6,
-        speedY: Math.random() * 0.6 + 0.2,
-        speedX: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.35 + 0.08,
-        hue: Math.random() * 60 + 200, // blue to purple range
+        radius: Math.random() * 40 + 10,
+        speedY: Math.random() * 0.5 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.12 + 0.04,
+        hue: Math.random() * 60 + 230, // indigo to violet
       };
     }
 
@@ -55,29 +55,29 @@ export default function BubbleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       bubbles.forEach((b, i) => {
-        ctx.beginPath();
-
+        // Fill
         const gradient = ctx.createRadialGradient(
           b.x - b.radius * 0.3,
           b.y - b.radius * 0.3,
-          b.radius * 0.1,
+          b.radius * 0.05,
           b.x,
           b.y,
           b.radius
         );
-        gradient.addColorStop(0, `hsla(${b.hue}, 80%, 80%, ${b.opacity * 1.5})`);
-        gradient.addColorStop(0.5, `hsla(${b.hue}, 70%, 60%, ${b.opacity})`);
-        gradient.addColorStop(1, `hsla(${b.hue}, 60%, 40%, 0)`);
+        gradient.addColorStop(0, `hsla(${b.hue}, 70%, 70%, ${b.opacity * 1.8})`);
+        gradient.addColorStop(0.6, `hsla(${b.hue}, 65%, 60%, ${b.opacity})`);
+        gradient.addColorStop(1, `hsla(${b.hue}, 60%, 50%, 0)`);
 
+        ctx.beginPath();
         ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        // bubble rim highlight
+        // Rim
         ctx.beginPath();
         ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `hsla(${b.hue}, 80%, 85%, ${b.opacity * 0.6})`;
-        ctx.lineWidth = 1;
+        ctx.strokeStyle = `hsla(${b.hue}, 60%, 65%, ${b.opacity * 0.8})`;
+        ctx.lineWidth = 0.8;
         ctx.stroke();
 
         b.y -= b.speedY;

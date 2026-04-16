@@ -9,19 +9,12 @@ export default function Home() {
       className="relative min-h-screen overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.08) 0%, transparent 60%), #05050f",
+          "radial-gradient(ellipse at 20% 10%, rgba(167,139,250,0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(96,165,250,0.1) 0%, transparent 50%), #f8f9fc",
       }}
     >
-      {/* Animated bubble background */}
       <BubbleBackground />
-
-      {/* Custom cursor + trail */}
       <CursorGlow />
-
-      {/* Main content */}
       <HeroSection />
-
-      {/* AI Chat bar at bottom */}
       <ChatBar />
     </main>
   );
