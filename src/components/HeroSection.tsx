@@ -151,31 +151,29 @@ export default function HeroSection() {
             }}
           >
             {/* Dialog header */}
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-2.5">
-                <span
-                  className="text-sm font-bold px-3 py-1 rounded-full"
-                  style={{
-                    color: "#7c3aed",
-                    background: "rgba(124,58,237,0.1)",
-                    border: "1px solid rgba(124,58,237,0.2)",
-                  }}
-                >
-                  {selectedTech}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-left" style={{ color: "#0f172a" }}>
-                    {detail.project}
-                  </p>
-                  <p className="text-xs" style={{ color: "#94a3b8" }}>{detail.period}</p>
-                </div>
-              </div>
+            <div className="flex items-center justify-between mb-5">
+              <span
+                className="text-xs font-bold px-2.5 py-1 rounded-full"
+                style={{
+                  color: "#7c3aed",
+                  background: "rgba(124,58,237,0.1)",
+                  border: "1px solid rgba(124,58,237,0.2)",
+                }}
+              >
+                {selectedTech}
+              </span>
               <button
                 onClick={() => setSelectedTech(null)}
-                className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-slate-100"
+                className="w-7 h-7 rounded-full flex items-center justify-center transition-colors hover:bg-slate-100"
               >
-                <X size={15} style={{ color: "#94a3b8" }} />
+                <X size={14} style={{ color: "#94a3b8" }} />
               </button>
+            </div>
+            <div className="mb-4 text-left">
+              <p className="text-base font-semibold" style={{ color: "#0f172a" }}>
+                {detail.project}
+              </p>
+              <p className="text-xs mt-0.5" style={{ color: "#94a3b8" }}>{detail.period}</p>
             </div>
 
             {/* Metric highlight */}
